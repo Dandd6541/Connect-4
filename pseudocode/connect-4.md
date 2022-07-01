@@ -28,4 +28,6 @@
 
 // array of 42 elements (each element is a circle)
 
-// 
+// * {
+  box-sizing: border-box;
+}
