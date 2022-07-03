@@ -1,26 +1,36 @@
-body {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 0;
-height: 100vh;
-font-family: Arial, Helvetica, sans-serif;
-
-}
-#board {
+.grid{
     display: grid;
-    grid-template-columns: repeat(7, 20vmin);
-    grid-template-rows: repeat(6,20vmin);
-    border: 6vmin;
-    border-color: white;
-    height: 800px;
-    width: 750px;
-    background-position: center;
-    background-color: red;
+    grid-template-columns: repeat(7, 110px);
+    grid-template-rows: repeat(6,110px);
+    width: 770px;
+    height: 660px;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: blue;
 }
-#board > div {
-    border: 10px solid grey;
-    cursor: pointer;
-    display: block;
+.chamber {
+    border: 5px solid blue;
+    background-color: white;
+    border-radius: 50%; //makes each cell look like a circle!!!!!! Major key alert
+    outline: 5px solid blue;
 }
+.cell:hover{
+  background-color: aqua;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
