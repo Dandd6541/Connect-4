@@ -6,9 +6,9 @@
 //board which is the main part of the game
 //the turn (each player switches off going)
 // the game status (so where we are in the game and eventually, who WINS!)
-let gameStatus; //talking about the current game play so in session is null, winner is 'W' and loser is 'L'
-let currentTurn; //this array hold the key for the current player whos turn it is
-let playerColor; //this indicates which player is which color and in our case P1=(yellow) 'Y' and P2=(red) 'R'
+let board; //an array where the nested arrays will rep the columns
+let turn; /// 1 or -1 for player; 0 for no user in that cell
+
 
 /*----- cached element references -----*/
 
@@ -17,3 +17,18 @@ let playerColor; //this indicates which player is which color and in our case P1
 
 
 /*----- functions -----*/
+init();
+// we initialize the state and then we will call render()
+function init() {
+border = [
+    [0, 0, 0, 0, 0, 0], // this represents column 0
+    [0, 0, 0, 0, 0, 0], // this represents column 1
+    [0, 0, 0, 0, 0, 0], // this represents column 2
+    [0, 0, 0, 0, 0, 0], // this represents column 3
+    [0, 0, 0, 0, 0, 0], // this represents column 4
+    [0, 0, 0, 0, 0, 0], // this represents column 5
+    [0, 0, 0, 0, 0, 0], // this represents column 6
+];
+turn = 1;
+render()
+}
