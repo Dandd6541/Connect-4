@@ -1,4 +1,9 @@
 /*----- constants -----*/
+const COLORS = {
+    '0': 'white',
+    '1': 'yellow',
+    '-1': 'red',
+};
 
 
 /*----- app's state (variables) -----*/
@@ -11,9 +16,10 @@ let turn; /// 1 or -1 for player; 0 for no user in that cell
 
 
 /*----- cached element references -----*/
-
+const markerEls = [...document.querySelectorAll('#markers > div')];
 
 /*----- event listeners -----*/
+document.getElementById('markers').addEventListener('click',handleDrop);
 
 
 /*----- functions -----*/
@@ -21,7 +27,7 @@ init();
 // we initialize the state and then we will call render()
 function init() {
 board = [
-    [0, 0, 0, 0, 0, 0], // this represents column 0
+    [1, 0, 0, 0, 0, 0], // this represents column 0
     [0, 0, 0, 0, 0, 0], // this represents column 1
     [0, 0, 0, 0, 0, 0], // this represents column 2
     [0, 0, 0, 0, 0, 0], // this represents column 3
@@ -36,8 +42,16 @@ function render() {
     // Iterating over the column array
     board.forEach(function(colArr, colIdx) {
         colArr.forEach(function(cellVal, rowIdx) {
-            const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
-        
-        });
+            const coinEl = document.getElementById(`c${colIdx}r${rowIdx}`);
+               coinEl.style.backgroundColor = COLORS[cellVal];
+        }); 
     });
-}
+
+// we need to update all the updated states and make sure to call render
+    function handleDrop(evt) {
+        const colIdx = markerEls.indexOf(evt.target);
+            if (colIdx === -1) return;
+            const colArr = board[colIdx];
+
+            render();
+    }
