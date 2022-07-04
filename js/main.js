@@ -20,38 +20,46 @@ const markerEls = [...document.querySelectorAll('#markers > div')];
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click',handleDrop);
-
-
+document.querySelector('#board').addEventListener('click',handleBoard);
 /*----- functions -----*/
+
 init();
 // we initialize the state and then we will call render()
-function init() {
-board = [
-    [1, 0, 0, 0, 0, 0], // this represents column 0
-    [0, 0, 0, 0, 0, 0], // this represents column 1
-    [0, 0, 0, 0, 0, 0], // this represents column 2
-    [0, 0, 0, 0, 0, 0], // this represents column 3
-    [0, 0, 0, 0, 0, 0], // this represents column 4
-    [0, 0, 0, 0, 0, 0], // this represents column 5
-    [0, 0, 0, 0, 0, 0], // this represents column 6
-];
-turn = 1;
-render()
+function handleBoard(evt) {
+    if (evt.target.classList.value !== 'board') {
+    console.log(evt);
+    }
 }
-function render() {
-    // Iterating over the column array
+  
+
+function init() {
+    board = [
+        [0, 0, 0, 0, 0, 0], // this represents column 0
+        [0, 0, 0, 0, 0, 0], // this represents column 1
+        [0, 0, 0, 0, 0, 0], // this represents column 2
+        [0, 0, 0, 0, 0, 0], // this represents column 3
+        [0, 0, 0, 0, 0, 0], // this represents column 4
+        [0, 0, 0, 0, 0, 0], // this represents column 5
+        [0, 0, 0, 0, 0, 0], // this represents column 6
+    ];
+    turn = 1;
+    render()
+}
+ function render() {
+//    Iterating over the column array
     board.forEach(function(colArr, colIdx) {
         colArr.forEach(function(cellVal, rowIdx) {
             const coinEl = document.getElementById(`c${colIdx}r${rowIdx}`);
                coinEl.style.backgroundColor = COLORS[cellVal];
         }); 
-    });
+    })
+} 
 
-// we need to update all the updated states and make sure to call render
-    function handleDrop(evt) {
+//we need to update all the updated states and make sure to call render
+     function handleDrop(evt) {
         const colIdx = markerEls.indexOf(evt.target);
-            if (colIdx === -1) return;
+             if (colIdx === -1) return;
             const colArr = board[colIdx];
 
-            render();
-    }
+           render();
+     }
