@@ -20,7 +20,7 @@ let turn; /// 1 or -1 for player; 0 for no user in that cell
 init();
 // we initialize the state and then we will call render()
 function init() {
-border = [
+board = [
     [0, 0, 0, 0, 0, 0], // this represents column 0
     [0, 0, 0, 0, 0, 0], // this represents column 1
     [0, 0, 0, 0, 0, 0], // this represents column 2
@@ -31,4 +31,13 @@ border = [
 ];
 turn = 1;
 render()
+}
+function render() {
+    // Iterating over the column array
+    board.forEach(function(colArr, colIdx) {
+        colArr.forEach(function(cellVal, rowIdx) {
+            const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
+        
+        });
+    });
 }
