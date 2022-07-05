@@ -52,14 +52,27 @@ function init() {
             const coinEl = document.getElementById(`c${colIdx}r${rowIdx}`);
                coinEl.style.backgroundColor = COLORS[cellVal];
         }); 
-    })
-} 
+      
+        });
+
+        renderMarkers();
+        }
+        //hide- show the markers will hide when no 0's are there in the column
+        function renderMarkers() {
+            markerEls.forEach(function(markerEl, colIdx) {
+                markerEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
+            });
+        }
+
 
 //we need to update all the updated states and make sure to call render
      function handleDrop(evt) {
         const colIdx = markerEls.indexOf(evt.target);
              if (colIdx === -1) return;
             const colArr = board[colIdx];
-
-           render();
+            if(!colArr.includes(0)) return;
+            const rowIdx = colArr.indexOf(0);
+            colArr[rowIdx] = turn;
+            turn *= -1;       
+            render();
      }
