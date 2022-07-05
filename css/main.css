@@ -12,8 +12,8 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 16vmin);
   /* gap: 2vmin; */
-  margin-top: 2vmin;
-  background-color: rgb(14, 11, 11);
+  /* margin-top: 2vmin;
+  background-color: rgb(14, 11, 11); */
   
 }
 #markers > div {
@@ -33,24 +33,28 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 16vmin);
   grid-template-rows: repeat(6,16vmin);
-  margin: 0 auto;
+   margin: 0 auto; 
   margin-top: -3vmin;
   gap: .2vmin;
   justify-content: center;
   background-color: blue;
   border: .1vmin solid black;
-  width: 825px;
-  
- 
+ width: 120vmin;
 }
 
 #board > div {
   border-radius: 50%;
-  border: 0.1vmin solid rgb(1, 0, 0);
+  margin-top: 4px;
+  border: 3.5px solid rgb(1, 0, 0);
   border-radius: 50%;
   background: white;
+  cursor: pointer;
+  
 }
+button {
+  background-color: red;
 
+}
 
 
 
