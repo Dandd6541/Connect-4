@@ -14,8 +14,11 @@ const COLORS = {
 let board; //an array where the nested arrays will rep the columns
 let turn; /// 1 or -1 for player; 0 for no user in that cell
 let gameStatus; // ths will be null -> game in play; 1/-1 player win; 'T' -> tie
-let checkWinner; // true ,will change the mesage 
+function checkWin () {
+
+} // true ,will change the mesage 
 let winner;
+let player;
 
 
 /*----- cached element references -----*/
@@ -24,24 +27,12 @@ const msgEl = document.querySelector('h1');
 const buttonEl = document.querySelector('button');
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
-document.querySelector('#board').addEventListener('click', handleBoard);
 buttonEl.addEventListener('click', init);
 // document.getElementById('board').addEventListener('click', handleMove);
 
 /*----- functions -----*/
 
 init();
-// we initialize the state and then we will call render()
-function handleBoard(evt) {
-    if (evt.target.classList.value !== 'board') {
-        console.log(evt);
-        checkWinner = checkWinner(colArr, rowIdx)
-        gameStatus = getGameStatus();
-       
-
-    }
-}
-
 
 function init() {
     board = [
@@ -69,7 +60,6 @@ function render() {
     renderMarkers();
     renderMessage();
 
-
 }
 function renderMessage() {
     if (gameStatus === 0) {
@@ -84,6 +74,9 @@ function renderMessage() {
 function renderMarkers() {
     markerEls.forEach(function (markerEl, colIdx) {
         markerEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
+        if (winner === -1 || winner === 1 ) {
+            markerEl.style.visibility = 'hidden'
+    };
     });
 }
 //we need to update all the updated states and make sure to call render
@@ -91,37 +84,40 @@ function handleDrop(evt) {
     const colIdx = markerEls.indexOf(evt.target);
     if (colIdx === -1) return;
     const colArr = board[colIdx];
-    if (!colArr.includes(0)) return;
     const rowIdx = colArr.indexOf(0);
+    if (!colArr.includes(0)) return;
     colArr[rowIdx] = turn;
     turn *= -1;
-  //gameStatus = checkWin(colIdx, rowIdx);
+    winner = checkWin(colIdx, rowIdx);
     render();
 }
 
 
+function checkWin(colIdx, rowIdx) {
+    const player = board[colIdx][rowIdx];
+    if (checkVertWin(colIdx, rowIdx, player)) 
+       // checkHorzWin(colIdx, rowIdx, player)||
+        //checkDiagWin(colIdx, rowIdx, player);
+    return turn;
+}
 function checkVertWin(colIdx, rowIdx, player) {
     const colArr = board[colIdx];
     let count = 1;
-    // We can use/modify rowIdx because we won't need
-    // to access it's original value anymore
     rowIdx--;
-    // Count until no longer the same 'player'
     while (colArr[rowIdx] === player && rowIdx >= 0) {
         count++;
         rowIdx--;
     }
-    return count === 4 ? renderWinner(player) : 0;
+    return count === 4 ? winner = turn : 0;
 }
 
-function getGameStatus(){
-    let flatBoard = board.flat(2); 
-    if (!flatBoard.includes(0)) return 't'; 
-    if (winner === true) return 'w'; 
-   return null;
+function checkVertWin(colIdx, rowIdx, player) {
+    const colArr = board[colIdx];
+    let count = 1;
+    rowIdx--;
+    while (colArr[rowIdx] === player && rowIdx >= 0) {
+        count++;
+        rowIdx--;
+    }
+    return count === 4 ? winner = turn : 0;
 }
-
-// function getGameStatus() {
-//     if (!board.includes(0)) return "T";
-//     return 0;
-//   }
