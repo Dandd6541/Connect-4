@@ -37,7 +37,7 @@ body {
   margin-top: -2vmin;
   gap: .2vmin;
   justify-content: center;
-  background-color: blue;
+  background-color: red;
   border: .1vmin solid black;
  width: 120vmin;
 }
