@@ -10,14 +10,14 @@ body {
 }
 #markers {
   display: grid;
-  grid-template-columns: repeat(7, 16vmin);
+  grid-template-columns: repeat(7, 13vmin);
   /* gap: 2vmin; */
   /* margin-top: 2vmin;
   background-color: rgb(14, 11, 11); */
   
 }
 #markers > div {
-  height: 24vmin;
+  height: 20vmin;
   /* border-width: 2vmin; */
   border-style: solid;
   border-color: rgb(241, 237, 237) transparent transparent;
@@ -31,10 +31,10 @@ body {
 }
 #board {
   display: grid;
-  grid-template-columns: repeat(7, 16vmin);
-  grid-template-rows: repeat(6,16vmin);
+  grid-template-columns: repeat(7, 13vh);
+  grid-template-rows: repeat(6,13vh);
    margin: 0 auto; 
-  margin-top: -3vmin;
+  margin-top: -2vmin;
   gap: .2vmin;
   justify-content: center;
   background-color: blue;
@@ -53,6 +53,8 @@ body {
 }
 button {
   background-color: red;
+  margin-top: 5vmin;
+  font-size: 4vmin;
 
 }
 
