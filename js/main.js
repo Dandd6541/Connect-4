@@ -45,7 +45,8 @@ function init() {
         [0, 0, 0, 0, 0, 0], // this represents column 6
     ];
     turn = 1;
-    gameStatus = null;
+    winner = null;
+    renderMarkers();
     render()
 }
 
@@ -95,10 +96,10 @@ function handleDrop(evt) {
 
 function checkWin(colIdx, rowIdx) {
     const player = board[colIdx][rowIdx];
-    if (checkVertWin(colIdx, rowIdx, player)) 
-       // checkHorzWin(colIdx, rowIdx, player)||
-        //checkDiagWin(colIdx, rowIdx, player);
-    return turn;
+    if (checkVertWin(colIdx, rowIdx, player) ||
+        checkHorzWin(colIdx, rowIdx, player))
+        //checkDiagWin(colIdx, rowIdx, player); 
+        return turn;
 }
 function checkVertWin(colIdx, rowIdx, player) {
     const colArr = board[colIdx];
@@ -111,13 +112,19 @@ function checkVertWin(colIdx, rowIdx, player) {
     return count === 4 ? winner = turn : 0;
 }
 
-function checkVertWin(colIdx, rowIdx, player) {
+function checkHorzWin(colIdx, rowIdx, player) {
     const colArr = board[colIdx];
     let count = 1;
-    rowIdx--;
-    while (colArr[rowIdx] === player && rowIdx >= 0) {
+    let idx = colIdx + 1;
+    while (idx < board.length && board [idx][rowIdx] === player) {
         count++;
-        rowIdx--;
+        idx++; 
     }
-    return count === 4 ? winner = turn : 0;
+    idx = colIdx -1;
+    while((idx >= 0) && board[idx][rowIdx] === player) {
+        count++;
+        idx--;
+    }
+    return count >= 4 ? winner = turn : null;
+
 }
