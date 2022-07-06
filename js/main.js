@@ -16,7 +16,8 @@ let turn; /// 1 or -1 for player; 0 for no user in that cell
 let gameStatus; // ths will be null -> game in play; 1/-1 player win; 'T' -> tie
 function checkWin () {
 
-} // true ,will change the mesage 
+} 
+// true ,will change the mesage 
 let winner;
 let player;
 
@@ -63,11 +64,12 @@ function render() {
 
 }
 function renderMessage() {
-    if (gameStatus === 0) {
+    if (winner === 0) {
         msgEl.innerHTML = `Player <span style=“color: ${COLORS[turn]}“>${COLORS[turn].toUpperCase()}</span>’s Turn`;
-    } else if (gameStatus === 'T') {
+    } else if (winner === 'T') {
+        msgEl.innerHTML = "It's a Tie"
         // Tie game
-    } else {
+    } else { 
         // Player has won!
     }
 }
@@ -97,7 +99,7 @@ function handleDrop(evt) {
 function checkWin(colIdx, rowIdx) {
     const player = board[colIdx][rowIdx];
     if (checkVertWin(colIdx, rowIdx, player) ||
-        checkHorzWin(colIdx, rowIdx, player))
+        checkHorzWin(colIdx, rowIdx, player)) 
         //checkDiagWin(colIdx, rowIdx, player); 
         return turn;
 }
@@ -128,3 +130,13 @@ function checkHorzWin(colIdx, rowIdx, player) {
     return count >= 4 ? winner = turn : null;
 
 }
+// function checkDiagWin(colIdx, rowIdx, player) {
+//     let count = 1;
+//     rowIdx++;
+//     colIdx++;
+//     console.log(board[colIdx][rowIdx]);
+//       while (board[colIdx][rowIdx] === player) {
+//        count++;
+//         idx--;
+//      }
+// }
