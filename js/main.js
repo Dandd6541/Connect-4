@@ -46,7 +46,7 @@ function init() {
         [0, 0, 0, 0, 0, 0], // this represents column 6
     ];
     turn = 1;
-    winner = null;
+    winner = 0;
     renderMarkers();
     render()
 }
@@ -64,15 +64,13 @@ function render() {
 
 }
 function renderMessage() {
-    if (winner === 0) {
-        msgEl.innerHTML = `Player <span style=“color: ${COLORS[turn]}“>${COLORS[turn].toUpperCase()}</span>’s Turn`;
-    } else if (winner === 'T') {
-        msgEl.innerHTML = "It's a Tie"
-        // Tie game
-    } else { 
-        // Player has won!
+    if (winner === 'T') { msgEl.innerHTML = "It's a Tie!!!";
+    } else if (winner === 1 || winner === -1) {
+      msgEl.innerHTML = `<span style=“color: ${COLORS[winner*-1]}“>${COLORS[winner*-1].toUpperCase()}</span> Wins!`;
+    } else {
+      msgEl.innerHTML = `<span style=“color: ${COLORS[turn]}“>${COLORS[turn].toUpperCase()}</span>'s Turn`;
     }
-}
+  }
 //hide- show the markers will hide when no 0's are there in the column
 function renderMarkers() {
     markerEls.forEach(function (markerEl, colIdx) {
@@ -83,7 +81,7 @@ function renderMarkers() {
     });
 }
 //we need to update all the updated states and make sure to call render
-function handleDrop(evt) {
+function handleDrop(evt) {  
     const colIdx = markerEls.indexOf(evt.target);
     if (colIdx === -1) return;
     const colArr = board[colIdx];
@@ -111,7 +109,7 @@ function checkVertWin(colIdx, rowIdx, player) {
         count++;
         rowIdx--;
     }
-    return count === 4 ? winner = turn : 0;
+    return count === 4 ? winner = turn*-1 : 0;
 }
 
 function checkHorzWin(colIdx, rowIdx, player) {
@@ -127,16 +125,18 @@ function checkHorzWin(colIdx, rowIdx, player) {
         count++;
         idx--;
     }
-    return count >= 4 ? winner = turn : null;
+    return count >= 4 ? winner = turn*-1 : 0;
 
 }
 // function checkDiagWin(colIdx, rowIdx, player) {
 //     let count = 1;
+//     let idx1 = columnIdx - 1;
+//     let idx2 = columnIdx + 1;
 //     rowIdx++;
 //     colIdx++;
-//     console.log(board[colIdx][rowIdx]);
+//     //console.log(board[colIdx][rowIdx]);
 //       while (board[colIdx][rowIdx] === player) {
 //        count++;
 //         idx--;
-//      }
-// }
+//     }
+//  }
