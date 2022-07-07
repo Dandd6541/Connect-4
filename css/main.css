@@ -7,7 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Open Sans', sans-serif;
-  background-image: url(https://i.imgur.com/WBHePc5.jpeg);
+  background-image: url(https://i.imgur.com/2oB3aic.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -16,8 +16,7 @@ body {
   grid-template-columns: repeat(7, 6vmin);
   gap: .1vmin; 
   margin-top: 1vmin;
-  /* background-color: rgb(14, 11, 11);
-   */
+  
 }
 #markers > div {
   height: 10vmin;
@@ -25,6 +24,7 @@ body {
   border-style: solid;
   border-color: rgb(11, 175, 240);
   transform: scale(.4); 
+ 
 }
 
 #markers > div:hover {
@@ -50,21 +50,25 @@ body {
 #board > div {
   border-radius: 50%;
   margin-top: 4px;
-  border: 3.5px solid rgb(1, 0, 0);
+  border: 3.5px solid rgb(10, 211, 204);
   border-radius: 50%;
   background: white;
   cursor: pointer;
   
 }
 button {
-  background-color: red;
+  background-color: rgb(15, 226, 241);
   margin-top: 5vmin;
   font-size: 4vmin;
+  -webkit-text-stroke: .2vmin rgb(255, 255, 255) ;
+  text-align: center;
 
 }
 h2 {
   color: rgb(168, 101, 184);
   font-size: 32px;
+  text-align: center;
+  -webkit-text-stroke: .15vmin rgb(8, 199, 233);
 }
 
 

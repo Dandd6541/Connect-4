@@ -66,9 +66,9 @@ function renderMessage() {
     if (winner === 'T') {
         msgEl.innerHTML = "It's a Tie!!!";
     } else if (winner === 1 || winner === -1) {
-        msgEl.innerHTML = `<span style=“color: ${COLORS[winner]}“>${COLORS[winner].toUpperCase()}</span> Wins!`;
+        msgEl.innerHTML = `<span style=“color:${COLORS[winner]}“>${COLORS[winner].toUpperCase()}</span> Wins!`;
     } else {
-        msgEl.innerHTML = `<span style=“color: ${COLORS[turn]}“>${COLORS[turn].toUpperCase()}</span>'s Turn`;
+        msgEl.innerHTML = `<span style=“color:${COLORS[turn]}“>${COLORS[turn].toUpperCase()}</span>'s Turn`;
     }
 }
 //hide- show the markers will hide when no 0's are there in the column
