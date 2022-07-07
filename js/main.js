@@ -14,9 +14,9 @@ const COLORS = {
 let board; //an array where the nested arrays will rep the columns
 let turn; /// 1 or -1 for player; 0 for no user in that cell
 let gameStatus; // ths will be null -> game in play; 1/-1 player win; 'T' -> tie
-function checkWin () {
+function checkWin() {
 
-} 
+}
 // true ,will change the mesage 
 let winner;
 let player;
@@ -64,24 +64,25 @@ function render() {
 
 }
 function renderMessage() {
-    if (winner === 'T') { msgEl.innerHTML = "It's a Tie!!!";
+    if (winner === 'T') {
+        msgEl.innerHTML = "It's a Tie!!!";
     } else if (winner === 1 || winner === -1) {
-      msgEl.innerHTML = `<span style=“color: ${COLORS[winner*-1]}“>${COLORS[winner*-1].toUpperCase()}</span> Wins!`;
+        msgEl.innerHTML = `<span style=“color: ${COLORS[winner]}“>${COLORS[winner].toUpperCase()}</span> Wins!`;
     } else {
-      msgEl.innerHTML = `<span style=“color: ${COLORS[turn]}“>${COLORS[turn].toUpperCase()}</span>'s Turn`;
+        msgEl.innerHTML = `<span style=“color: ${COLORS[turn]}“>${COLORS[turn].toUpperCase()}</span>'s Turn`;
     }
-  }
+}
 //hide- show the markers will hide when no 0's are there in the column
 function renderMarkers() {
     markerEls.forEach(function (markerEl, colIdx) {
         markerEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
-        if (winner === -1 || winner === 1 ) {
+        if (winner === -1 || winner === 1) {
             markerEl.style.visibility = 'hidden'
-    };
+        };
     });
 }
 //we need to update all the updated states and make sure to call render
-function handleDrop(evt) {  
+function handleDrop(evt) {
     const colIdx = markerEls.indexOf(evt.target);
     if (colIdx === -1) return;
     const colArr = board[colIdx];
@@ -90,17 +91,20 @@ function handleDrop(evt) {
     colArr[rowIdx] = turn;
     turn *= -1;
     winner = checkWin(colIdx, rowIdx);
-    render();
+     render();
 }
+
 
 
 function checkWin(colIdx, rowIdx) {
     const player = board[colIdx][rowIdx];
-    if (checkVertWin(colIdx, rowIdx, player) ||
-        checkHorzWin(colIdx, rowIdx, player)) 
-        //checkDiagWin(colIdx, rowIdx, player); 
-        return turn;
-}
+   return checkVertWin(colIdx, rowIdx, player) ||
+        checkHorzWin(colIdx, rowIdx, player)||
+        checkDiagWinRight(colIdx, rowIdx, player)||
+        checkDiagWinLeft(colIdx, rowIdx, player)||
+        (board.flat().includes(0) ?null : 'T');
+};
+
 function checkVertWin(colIdx, rowIdx, player) {
     const colArr = board[colIdx];
     let count = 1;
@@ -109,34 +113,69 @@ function checkVertWin(colIdx, rowIdx, player) {
         count++;
         rowIdx--;
     }
-    return count === 4 ? winner = turn*-1 : 0;
+    return count === 4 ? winner = turn * -1 : 0;
 }
 
 function checkHorzWin(colIdx, rowIdx, player) {
-    const colArr = board[colIdx];
+    const colArr = board[colIdx][rowIdx];
     let count = 1;
     let idx = colIdx + 1;
-    while (idx < board.length && board [idx][rowIdx] === player) {
+    while (idx < board.length && board[idx][rowIdx] === colArr) {
         count++;
-        idx++; 
+        idx++;
     }
-    idx = colIdx -1;
-    while((idx >= 0) && board[idx][rowIdx] === player) {
+    idx = colIdx - 1;
+    while (idx >= 0 && board[idx][rowIdx] === player) {
         count++;
         idx--;
     }
-    return count >= 4 ? winner = turn*-1 : 0;
+  
+    return count >= 4 ? winner = turn * -1 : 0;
 
 }
-// function checkDiagWin(colIdx, rowIdx, player) {
-//     let count = 1;
-//     let idx1 = columnIdx - 1;
-//     let idx2 = columnIdx + 1;
-//     rowIdx++;
-//     colIdx++;
-//     //console.log(board[colIdx][rowIdx]);
-//       while (board[colIdx][rowIdx] === player) {
-//        count++;
-//         idx--;
-//     }
-//  }
+function checkDiagWinRight(colIdx, rowIdx) {
+    const colArr = board[colIdx][rowIdx];
+    let count = 1;
+    let idx1 = colIdx - 1;
+    let idx2 = rowIdx + 1;
+
+    //console.log(board[colIdx][rowIdx]);
+    while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === colArr) {
+      
+        count++;
+        idx1--;
+        idx2++;
+    }
+
+     
+    idx1 = colIdx + 1;
+    idx2 = rowIdx - 1;
+    while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === colArr) {
+        count++;
+        idx1++;
+        idx2--;
+    }
+    return count >= 4 ? winner = turn * -1 : 0; 
+};
+    
+function checkDiagWinLeft(colIdx, rowIdx) {
+    const colArr = board[colIdx][rowIdx];
+    let count = 1;
+    let idx1 = colIdx + 1;
+    let idx2 = rowIdx +1;
+
+    while (idx1 < board.length && idx2 > board[0].length && board[idx1][idx2] === colArr) {
+    count++;
+    idx1++;
+    idx2++;
+
+    } 
+    idx1 = colIdx - 1;
+    idx2 = rowIdx - 1;
+    while (idx1 >= 0 && idx2 >= 0 && board[idx1][idx2] === colArr) {
+        count++;
+        idx1--;
+        idx2--;
+    }
+    return count >=4 ? winnter = turn * -1 : 0;
+}
