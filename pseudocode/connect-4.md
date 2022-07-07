@@ -1,44 +1,22 @@
-//This game has two players player 1 and player 2. 
-
-//Player 1 goes first then player 2 goes. 
-
-//First player to fill up 4 chambers in a row wins.
-
-//All directions are valid to filling 4 chambers in a row. 
-// lines can be verticle horizontal or diagnal 
-
-//player 1 color is yellow
-//player 2 color is red
-
-//The Connect 4 board is Blue in color.
-
-//The background of the backing is grey
-
-//This game has no time limit
-
-//each player can put in 1 peice at a time and each player rotates their turn with the other player. 
-
-//tie game 
-
-// player has won 
-
-//When player has one screen will show YOU WIN!
-
-// apps state variables (let commands)
-
-// array of 42 elements (each element is a circle)
-
-// * {
-  box-sizing: border-box;
-}
 
 Game Title:
 
 Connect-4
 
-This is a two player game consisting of Yellow and Red, with Yellow acting as the home player. The way the game works is that each player switches off inserting a coin and the first player to Connect-4, in any direction, WINS.
+This is a two player game consisting of Yellow and Red, with Yellow acting as the home player. The way the game works is that each player switches off inserting a coin and the first player to Connect-4, in any direction, WINS. Once the game ends, the board will reset once the user clicks, "Play Again".
+
+https://imgur.com/1nvPUgG
+https://imgur.com/soEHIbE
+https://imgur.com/mIEU45K
+
+Technologies used:
+
+JavaScript
+HTML
+CSS
+CardStarter CSS Library
 
 
+Getting Started:
 
-
-
+To begin, click on any marker hovering above the board, and the game will begin. 

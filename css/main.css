@@ -22,7 +22,7 @@ body {
   height: 10vmin;
    border-width: 1vmin;
   border-style: solid;
-  border-color: rgb(11, 175, 240);
+  border-color: rgb(196, 213, 157);
   transform: scale(.4); 
  
 }
@@ -66,7 +66,7 @@ button {
 }
 h2 {
   color: rgb(168, 101, 184);
-  font-size: 32px;
+  font-size: 37px;
   text-align: center;
   -webkit-text-stroke: .15vmin rgb(8, 199, 233);
 }
