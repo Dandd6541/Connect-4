@@ -1,6 +1,6 @@
 
 body {
-  height: 110vh;
+  height: 105vh;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -8,43 +8,43 @@ body {
   align-items: center;
   font-family: 'Open Sans', sans-serif;
   background-image: url(https://i.imgur.com/WBHePc5.jpeg);
-  background-size: 1450px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #markers {
   display: grid;
-  grid-template-columns: repeat(7, 8vmin);
-  gap: .2vmin; 
-  margin-top: 2vmin;
+  grid-template-columns: repeat(7, 6vmin);
+  gap: .1vmin; 
+  margin-top: 1vmin;
   /* background-color: rgb(14, 11, 11);
    */
 }
 #markers > div {
-  height: 20vmin;
-   border-width: 2vmin;
+  height: 10vmin;
+   border-width: 1vmin;
   border-style: solid;
-  border-color: rgb(241, 237, 237) transparent transparent;
-  transform: scale(.5); 
-  background-color: rgb(137, 55, 55);
+  border-color: rgb(11, 175, 240);
+  transform: scale(.4); 
 }
+
 #markers > div:hover {
-   transform: scale(0.9);
+   transform: scale(0.7);
   transition: transform 150ms ease-in;
-  border-top-color: rgb(236, 230, 230); 
+  border-top-color: rgb(6, 181, 239); 
 }
 #board {
   display: grid;
-  grid-template-columns: repeat(7, 8vh);
-  grid-template-rows: repeat(6,10vh);
+  grid-template-columns: repeat(7, 6vh);
+  grid-template-rows: repeat(6,8vh);
    margin: 0 auto; 
   margin-top: -2vmin;
   gap: .2vmin;
   justify-content: center;
-  background-image: url(https://i.imgur.com/fy7ERlO.jpeg);
-  background-size: 1000px;
-  background-position: center;
-  /* background-color: rgb(0, 255, 255); */
-  border: .1vmin solid black;
- width: 80vmin;
+  background-image: url(https://media0.giphy.com/media/OcclrtzYyuWhgHG6zE/giphy.gif?cid=ecf05e47iblqlngqy0s1ov6kxnsqju34n0aa1415kbm8qfhb&rid=giphy.gif&ct=g);
+  background-size: cover;
+  background-position: left;
+  border: .1vmin solid rgb(4, 213, 245);
+  width: 80vmin;
 }
 
 #board > div {
@@ -62,7 +62,10 @@ button {
   font-size: 4vmin;
 
 }
-
+h2 {
+  color: rgb(168, 101, 184);
+  font-size: 32px;
+}
 
 
 

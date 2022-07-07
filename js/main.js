@@ -29,7 +29,6 @@ const buttonEl = document.querySelector('button');
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
 buttonEl.addEventListener('click', init);
-// document.getElementById('board').addEventListener('click', handleMove);
 
 /*----- functions -----*/
 
@@ -138,8 +137,6 @@ function checkDiagWinRight(colIdx, rowIdx) {
     let count = 1;
     let idx1 = colIdx - 1;
     let idx2 = rowIdx + 1;
-
-    //console.log(board[colIdx][rowIdx]);
     while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === colArr) {
       
         count++;
@@ -179,3 +176,10 @@ function checkDiagWinLeft(colIdx, rowIdx) {
     }
     return count >=4 ? winnter = turn * -1 : 0;
 }
+var audio = new Audio('audio_file.mp3');
+audio.play();
+
+function play() {
+    var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
+    audio.play();
+  }
