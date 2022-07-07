@@ -62,6 +62,7 @@ function render() {
     renderMessage();
 
 }
+
 function renderMessage() {
     if (winner === 'T') {
         msgEl.innerHTML = "It's a Tie!!!";
@@ -92,8 +93,6 @@ function handleDrop(evt) {
     winner = checkWin(colIdx, rowIdx);
      render();
 }
-
-
 
 function checkWin(colIdx, rowIdx) {
     const player = board[colIdx][rowIdx];
@@ -132,22 +131,23 @@ function checkHorzWin(colIdx, rowIdx, player) {
     return count >= 4 ? winner = turn * -1 : 0;
 
 }
+
 function checkDiagWinRight(colIdx, rowIdx) {
     const colArr = board[colIdx][rowIdx];
     let count = 1;
     let idx1 = colIdx - 1;
     let idx2 = rowIdx + 1;
     while (idx1 >= 0 && idx2 < board[0].length && board[idx1][idx2] === colArr) {
-      
+        
         count++;
         idx1--;
         idx2++;
     }
 
-     
     idx1 = colIdx + 1;
     idx2 = rowIdx - 1;
     while (idx1 < board.length && idx2 >= 0 && board[idx1][idx2] === colArr) {
+       
         count++;
         idx1++;
         idx2--;
@@ -176,10 +176,3 @@ function checkDiagWinLeft(colIdx, rowIdx) {
     }
     return count >=4 ? winnter = turn * -1 : 0;
 }
-var audio = new Audio('audio_file.mp3');
-audio.play();
-
-function play() {
-    var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
-    audio.play();
-  }
