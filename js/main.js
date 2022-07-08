@@ -14,9 +14,7 @@ const COLORS = {
 let board; //an array where the nested arrays will rep the columns
 let turn; /// 1 or -1 for player; 0 for no user in that cell
 let gameStatus; // ths will be null -> game in play; 1/-1 player win; 'T' -> tie
-function checkWin() {
 
-}
 // true ,will change the mesage 
 let winner;
 let player;
@@ -62,7 +60,7 @@ function render() {
     renderMessage();
 
 }
-
+//This is the logic that tells you W,T or whos turn it is. 
 function renderMessage() {
     if (winner === 'T') {
         msgEl.innerHTML = "It's a Tie!!!";
@@ -93,7 +91,7 @@ function handleDrop(evt) {
     winner = checkWin(colIdx, rowIdx);
      render();
 }
-
+//this checks the directions of winning (vert,hor and diag)
 function checkWin(colIdx, rowIdx) {
     const player = board[colIdx][rowIdx];
    return checkVertWin(colIdx, rowIdx, player) ||

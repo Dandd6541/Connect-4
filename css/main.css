@@ -36,13 +36,13 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 6vh);
   grid-template-rows: repeat(6,8vh);
-   margin: 0 auto; 
-  margin-top: -2vmin;
+    margin: 0 auto;  
+   margin-top: -2vmin;
   gap: .2vmin;
   justify-content: center;
   background-image: url(https://media0.giphy.com/media/OcclrtzYyuWhgHG6zE/giphy.gif?cid=ecf05e47iblqlngqy0s1ov6kxnsqju34n0aa1415kbm8qfhb&rid=giphy.gif&ct=g);
   background-size: cover;
-  background-position: left;
+  background-position: center;
   border: .1vmin solid rgb(4, 213, 245);
   width: 80vmin;
 }
