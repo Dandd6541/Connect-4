@@ -70,8 +70,13 @@ h2 {
   text-align: center;
   -webkit-text-stroke: .15vmin rgb(8, 199, 233);
 }
+h2:hover {
+  color: yellow;
+}
 
-
+button:hover {
+  color: red;
+}
 
 
 
