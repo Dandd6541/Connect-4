@@ -1,11 +1,11 @@
 
-**Game Title:**
+Game Title:
 
 Connect-4
 
 This is a two player game consisting of Yellow and Red, with Yellow acting as the home player. The way the game works is that each player switches off inserting a coin and the first player to Connect-4, in any direction, WINS. Once the game ends, the board will reset once the user clicks, "Play Again".
 
-<img src = "https://i.imgur.com/1nvPUgG.jpg)">
+<img src = "https://i.imgur.com/jYdBDpT.png)">
 <img src = "https://i.imgur.com/soEHIbE.png)">
 
 

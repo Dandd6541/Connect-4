@@ -174,3 +174,4 @@ function checkDiagWinLeft(colIdx, rowIdx) {
     }
     return count >=4 ? winnter = turn * -1 : 0;
 }
+
