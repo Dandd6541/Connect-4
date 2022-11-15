@@ -174,3 +174,19 @@ function checkDiagWinLeft(colIdx, rowIdx) {
     }
     return count >=4 ? winnter = turn * -1 : 0;
 }
+
+var timer;
+var ele = document.getElementById('timer');
+
+
+(function (){
+    var seconds = 0;
+    timer = setInterval(()=>{
+        ele.innerHTML = '00:' +seconds;
+        seconds ++;
+
+
+    }, 1000)
+
+
+})()
