@@ -190,3 +190,6 @@ var ele = document.getElementById('timer');
 
 
 })()
+function pause() {
+    clearInterval(timer);
+}
