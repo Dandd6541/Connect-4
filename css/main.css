@@ -78,7 +78,7 @@ button:hover {
   color: red;
 }
 
-#js_timer {
+/* #js_timer {
   text-align: center;
   padding-left: 20px;
 }
@@ -88,4 +88,63 @@ button:hover {
   width: 100px;
   margin: 10px; 
 }
-  
+   */
+
+:root {
+  --primary: crimson;
+  --dark: black;
+  --darkest:brown;
+  -light: white
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Fira sans', sans-serif;
+}
+
+.watch {
+	text-align: center;
+	background-color: var(--darkdark);
+	width: 100%;
+	max-width: 360px;
+	margin: 4rem auto;
+	border-radius: 1rem;
+}
+.watch .time {
+	font-size: 5rem;
+	font-weight: 300;
+	margin-bottom: 1rem;
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.controls button {
+	appearance: none;
+	background: none;
+	outline: none;
+	border: none;
+	cursor: pointer;
+
+	margin: 0 0.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+
+	color: #FFF;
+	background-color:rgb(15, 226, 241);
+
+	transition: 0.4s;
+	user-select: none;
+}
+
+.controls button:hover {
+	opacity: 0.7;
+}
+
+.controls button:active {
+	background-color: var(--dark);
+}
